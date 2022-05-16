@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_google_signin/models/google_user_models.dart';
 import 'package:firebase_google_signin/provider/auth_provider.dart';
 import 'package:firebase_google_signin/screens/login_with_facebook.dart';
 import 'package:firebase_google_signin/screens/login_with_google.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -26,9 +22,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: AuthProvider(),
         ),
-         ChangeNotifierProvider.value(
-          value:GoogleUserModel(),
-        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

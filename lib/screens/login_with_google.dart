@@ -11,15 +11,10 @@ class LoginWithGoogle extends StatefulWidget {
 }
 
 class _LoginWithGoogleState extends State<LoginWithGoogle> {
-  
-
-
-  
-  
   @override
   Widget build(BuildContext context) {
-     final userData = Provider.of<AuthProvider>(context,listen: false);
-    
+    final userData = Provider.of<AuthProvider>(context, listen: false);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -29,7 +24,6 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
             backgroundColor: Colors.white,
             radius: 40,
             backgroundImage: NetworkImage(userData.googleImageUrl!),
-            
           ),
           const SizedBox(height: 10),
           Text(userData.googleUserName!),
@@ -50,11 +44,9 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
             ),
             label: const Text("Sign in with Google"),
             onPressed: () async {
-              await Provider.of<AuthProvider>(context,listen: false).signInWithGoogle();
-              setState(() {
-          
-              });
-              
+              await Provider.of<AuthProvider>(context, listen: false)
+                  .signInWithGoogle();
+              setState(() {});
             },
           ),
           ElevatedButton.icon(
@@ -66,18 +58,19 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.red)),
             onPressed: () async {
-               Provider.of<AuthProvider>(context,listen: false).googleSignOut();
-             
-              setState(() {
-                
-              });
+              Provider.of<AuthProvider>(context, listen: false).googleSignOut();
+
+              setState(() {});
             },
           ),
           IconButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: const Icon(Icons.arrow_back,size: 30,),
+            icon: const Icon(
+              Icons.arrow_back,
+              size: 30,
+            ),
             tooltip: 'back to home screen',
             color: Colors.black,
           ),
@@ -85,6 +78,4 @@ class _LoginWithGoogleState extends State<LoginWithGoogle> {
       ),
     );
   }
-
-  
 }
